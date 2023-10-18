@@ -1,9 +1,16 @@
 import './assets/main.css'
 import {createStore} from 'vuex'
 
+
 const store = createStore({
     state() {
-        return {}
+        return {
+            items: [
+                {text: "1 item", id: 1},
+                {text: "2 item", id: 2},
+                {text: "3 item", id: 3}
+            ]
+        }
     },
     mutations: {}
 });
@@ -14,7 +21,7 @@ import router from './router'
 
 const app = createApp(App)
 
-app.use(router);
 app.use(store);
+app.use(router);
 
 app.mount('#app')

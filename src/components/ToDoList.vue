@@ -9,12 +9,9 @@ export default defineComponent({
     console.log("mounted")
   },
   data() {
+    console.log(this.$store.state.items)
     return {
-      items: [
-        {text: "1 item", id: 1},
-        {text: "2 item", id: 2},
-        {text: "3 item", id: 3}
-      ]
+      items: this.$store.state.items
     }
   },
   methods: {
