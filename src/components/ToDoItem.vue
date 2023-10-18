@@ -9,12 +9,10 @@ export default defineComponent({
     console.log("mounted")
   },
   data() {
+    const itemId = this.$route.params.id;
+    const item = this.$store.getters.itemForId(itemId)
     return {
-      id: 1,
-      text: "todo text",
-      created: (new Date()).getTime(),
-      updated: (new Date()).getTime(),
-      completed: true
+      ...item
     }
   },
   computed: {
