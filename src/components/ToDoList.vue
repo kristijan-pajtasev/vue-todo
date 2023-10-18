@@ -16,6 +16,12 @@ export default defineComponent({
         {text: "3 item", id: 3}
       ]
     }
+  },
+  methods: {
+    goToDetails(id) {
+      console.log("go to details " + id)
+      this.$router.push({name: "item", params: {id: id}})
+    }
   }
 })
 </script>
@@ -23,7 +29,7 @@ export default defineComponent({
 <template>
   <div>todo list</div>
   <ul>
-    <li v-for="item in items" :key="item.id">
+    <li v-for="item in items" :key="item.id" @click="goToDetails(item.id)">
       <div>{{item.text}}</div>
     </li>
   </ul>
