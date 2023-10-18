@@ -14,7 +14,6 @@ const store = createStore({
     },
     getters: {
         itemForId: store => id => {
-            console.log(store.items, id)
             return store.items.find(item => item.id === id)
         }
     },
