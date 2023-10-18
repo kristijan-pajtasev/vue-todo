@@ -12,6 +12,11 @@ const store = createStore({
             ]
         }
     },
+    getters: {
+        itemForId: store => id => {
+            return store.items.find(item => item.id === id)
+        }
+    },
     mutations: {}
 });
 
