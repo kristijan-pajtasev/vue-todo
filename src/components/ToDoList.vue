@@ -6,17 +6,14 @@ export default defineComponent({
   props: {
   },
   mounted() {
-    console.log("mounted")
   },
   data() {
-    console.log(this.$store.state.items)
     return {
       items: this.$store.state.items
     }
   },
   methods: {
     goToDetails(id) {
-      console.log("go to details " + id)
       this.$router.push({name: "item", params: {id: id}})
     }
   }
