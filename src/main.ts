@@ -21,7 +21,13 @@ const store = createStore({
     actions: {
         addToDoItem(context, payload) {
             console.log("addToDoItem", context, payload)
-            context.state.items = [...context.state.items, payload]
+            const item = {
+                ...payload,
+                created: (new Date()).getTime(),
+                updated: (new Date()).getTime(),
+                id: `${context.state.items.length + 1}`
+            }
+            context.state.items = [...context.state.items, item]
         }
     }
 });
