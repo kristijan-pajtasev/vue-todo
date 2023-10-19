@@ -9,16 +9,25 @@ export default defineComponent({
   mounted() {},
   data() {
     return {
-      status: this.$props.completed ? "Completed" : "Not completed"
     }
   },
-  computed: {}
+  methods: {
+    toggleCompleted() {
+      this.$emit("toggle-completed")
+    }
+  },
+  computed: {
+    statusText() {
+      return this.$props.completed ? "Completed" : "Not completed"
+    }
+  },
+  emits: ['toggle-completed'],
 })
 </script>
 
 <template>
-  <div>
-    {{status}}
+  <div @click="toggleCompleted">
+    {{statusText}}
   </div>
 </template>
 
