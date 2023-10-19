@@ -26,7 +26,10 @@ export default defineComponent({
   <div>
     <form @submit.prevent="createTodo">
       <div>
-        <textarea v-model="text"></textarea>
+        <label for="todoText">Todo text:</label>
+        <div>
+          <textarea id="todoText" v-model="text"></textarea>
+        </div>
       </div>
       <div>
         <label>
