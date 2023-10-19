@@ -1,10 +1,9 @@
 <script>
-import { defineComponent } from 'vue'
+import {defineComponent} from 'vue'
 
 export default defineComponent({
   // type inference enabled
-  props: {
-  },
+  props: {},
   mounted() {
     console.log("mounted")
   },
@@ -16,20 +15,39 @@ export default defineComponent({
     }
   },
   computed: {
-    displayCreatedDate(){ return new Date(this.created).toLocaleDateString()},
-    displayUpdatedDate(){ return new Date(this.updated).toLocaleDateString()}
+    displayCreatedDate() {
+      return new Date(this.created).toLocaleDateString()
+    },
+    displayUpdatedDate() {
+      return new Date(this.updated).toLocaleDateString()
+    }
   }
 })
 </script>
 
 <template>
-  <div>item</div>
-  <div>{{id}}</div>
-  <div>{{text}}</div>
-  <div>Created: {{displayCreatedDate}}</div>
-  <div>Updated: {{displayUpdatedDate}}</div>
-  <div>{{completed}}</div>
+  <div class="ToDoItem">
+    <div>{{ text }}</div>
+    <div class="ToDoItem__dateValues">
+      <div>Created: {{ displayCreatedDate }}</div>
+      <div>Updated: {{ displayUpdatedDate }}</div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
+.ToDoItem {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.ToDoItem__dateValues {
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1rem;
+  color: #aaa;
+}
 </style>
