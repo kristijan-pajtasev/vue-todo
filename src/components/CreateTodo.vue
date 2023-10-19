@@ -16,10 +16,8 @@ export default defineComponent({
     createTodo() {
       console.log("create todo");
       const {completed, text} = this;
-      console.log(text, completed)
-      // console.log()
-      // this.$store.actions.addToDoItem(text,completed)
-      this.$store.dispatch("addToDoItem", {text, completed})
+      this.$store.dispatch("addToDoItem", {text, completed});
+      this.$router.push({name: "home"});
     }
   }
 })
