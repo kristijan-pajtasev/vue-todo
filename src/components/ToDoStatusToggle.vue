@@ -3,10 +3,13 @@ import {defineComponent} from 'vue'
 
 export default defineComponent({
   // type inference enabled
-  props: {},
+  props: {
+    completed: Boolean
+  },
   mounted() {},
   data() {
     return {
+      status: this.$props.completed ? "Completed" : "Not completed"
     }
   },
   computed: {}
@@ -15,7 +18,7 @@ export default defineComponent({
 
 <template>
   <div>
-    status component
+    {{status}}
   </div>
 </template>
 
