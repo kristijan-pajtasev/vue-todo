@@ -17,7 +17,13 @@ const store = createStore({
             return store.items.find(item => item.id === id)
         }
     },
-    mutations: {}
+    mutations: {},
+    actions: {
+        addToDoItem(context, payload) {
+            console.log("addToDoItem", context, payload)
+            context.state.items = [...context.state.items, payload]
+        }
+    }
 });
 
 import {createApp} from 'vue'
