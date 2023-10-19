@@ -42,7 +42,7 @@ export default defineComponent({
 }
 
 .ToDoList__itemContainer {
-  max-width: calc(50% - 16px);
+  max-width: 25%;
   min-width: 25%;
   height: 150px;
 }
@@ -51,6 +51,19 @@ export default defineComponent({
   background: #FFFF99;
   height: 100%;
   padding: 8px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  width: 100%;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.ToDoList__item:hover {
+  background: #FFFF55;
   cursor: pointer;
 }
 </style>
