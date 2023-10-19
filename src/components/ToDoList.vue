@@ -45,7 +45,7 @@ export default defineComponent({
 .ToDoList__itemContainer {
   max-width: calc(33% - 32px);
   min-width: calc(33% - 32px);
-  height: 150px;
+  height: 250px;
 }
 
 .ToDoList__item {
