@@ -28,7 +28,6 @@ export default defineComponent({
   },
   methods: {
     handleToggleCompleted() {
-      console.log("handleToggleCompleted", this.completed)
       this.completed = !this.completed;
     }
   }
