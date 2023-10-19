@@ -28,6 +28,14 @@ const store = createStore({
                 id: `${context.state.items.length + 1}`
             }
             context.state.items = [...context.state.items, item]
+        },
+        toggleToDoItemStatus(context, payload) {
+            context.state.items = context.state.items.map(item => {
+                if(item.id === payload.itemId) {
+                    item.completed = !item.completed;
+                }
+                return item;
+            })
         }
     }
 });

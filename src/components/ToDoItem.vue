@@ -28,7 +28,8 @@ export default defineComponent({
   },
   methods: {
     handleToggleCompleted() {
-      this.completed = !this.completed;
+      this.$store.dispatch("toggleToDoItemStatus", {itemId: this.id});
+      this.completed = this.$store.getters.itemForId(this.id).completed;
     }
   }
 })
