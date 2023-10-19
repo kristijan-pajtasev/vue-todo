@@ -1,7 +1,9 @@
 <script>
 import {defineComponent} from 'vue'
+import ToDoStatusToggle from "@/components/ToDoStatusToggle.vue";
 
 export default defineComponent({
+  components: {ToDoStatusToggle},
   // type inference enabled
   props: {},
   mounted() {
@@ -27,6 +29,7 @@ export default defineComponent({
 
 <template>
   <div class="ToDoItem">
+    <ToDoStatusToggle ></ToDoStatusToggle>
     <div>{{ text }}</div>
     <div class="ToDoItem__dateValues">
       <div>Created: {{ displayCreatedDate }}</div>
