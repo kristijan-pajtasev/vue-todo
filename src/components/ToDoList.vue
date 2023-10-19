@@ -59,7 +59,7 @@ export default defineComponent({
   word-break: break-all;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
 }
 
