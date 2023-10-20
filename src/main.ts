@@ -6,9 +6,27 @@ const store = createStore({
     state() {
         return {
             items: [
-                {text: "1 item", id: "1", completed: true, created: (new Date()).getTime(), updated: (new Date()).getTime()},
-                {text: "2 item", id: "2", completed: false, created: (new Date()).getTime(), updated: (new Date()).getTime()},
-                {text: "3 item", id: "3", completed: false, created: (new Date()).getTime(), updated: (new Date()).getTime()}
+                {
+                    text: "1 item",
+                    id: "1",
+                    completed: true,
+                    created: (new Date()).getTime(),
+                    updated: (new Date()).getTime()
+                },
+                {
+                    text: "2 item",
+                    id: "2",
+                    completed: false,
+                    created: (new Date()).getTime(),
+                    updated: (new Date()).getTime()
+                },
+                {
+                    text: "3 item",
+                    id: "3",
+                    completed: false,
+                    created: (new Date()).getTime(),
+                    updated: (new Date()).getTime()
+                }
             ]
         }
     },
@@ -40,11 +58,22 @@ const store = createStore({
         },
         toggleToDoItemStatus(context, payload) {
             context.state.items = context.state.items.map(item => {
-                if(item.id === payload.itemId) {
+                if (item.id === payload.itemId) {
                     item.completed = !item.completed;
                 }
                 return item;
             })
+        },
+        getToDoItems(context) {
+            fetch(`${import.meta.env.VITE_FIREBASE_DB_URL}todo.json`, {
+                    method: "get",
+                }
+            ).then(
+                async (res) => {
+                    const data = await res.json()
+                    console.log(data)
+                }
+            )
         }
     }
 });

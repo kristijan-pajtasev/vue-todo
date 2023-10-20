@@ -6,6 +6,7 @@ export default defineComponent({
   props: {
   },
   mounted() {
+    this.$store.dispatch("getToDoItems")
   },
   data() {
     return {
