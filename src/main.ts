@@ -38,7 +38,7 @@ const store = createStore({
                     body: JSON.stringify(item)
                 }
             )
-            context.state.items = [...context.state.items, item]
+            context.dispatch("getToDoItems");
         },
         toggleToDoItemStatus(context, payload) {
             context.state.items = context.state.items.map(item => {
