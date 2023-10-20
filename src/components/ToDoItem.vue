@@ -8,12 +8,10 @@ export default defineComponent({
   props: {
   },
   mounted() {
-    console.log("mounted")
   },
   data() {
     const itemId = this.$route.params.id;
     const item = this.$store.getters.itemForId(itemId)
-    console.log(item)
     return {
       ...item
     }
