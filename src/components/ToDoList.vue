@@ -9,9 +9,10 @@ export default defineComponent({
     this.$store.dispatch("getToDoItems")
   },
   data() {
-    return {
-      items: this.$store.state.items
-    }
+    return {}
+  },
+  computed: {
+    items() { return this.$store.state.items }
   },
   methods: {
     goToDetails(id) {
