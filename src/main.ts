@@ -35,7 +35,13 @@ const store = createStore({
             return store.items.find(item => item.id === id)
         }
     },
-    mutations: {},
+    mutations: {
+        setAllToDoData(context, payload) {
+            console.log("test", context, payload)
+            context.items = payload;
+            console.log(context)
+        }
+    },
     actions: {
         addToDoItem(context, payload) {
             console.log("addToDoItem", context, payload)
@@ -70,8 +76,14 @@ const store = createStore({
                 }
             ).then(
                 async (res) => {
-                    const data = await res.json()
-                    console.log(data)
+                    const data = await res.json();
+                    const todos = Object.entries(data).map(([key, value]) => {
+                        return {
+                            ...value,
+                            id: key
+                        }
+                    })
+                    context.commit("setAllToDoData", todos)
                 }
             )
         }
