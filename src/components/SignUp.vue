@@ -16,13 +16,16 @@ export default defineComponent({
   computed: {
   },
   methods: {
+    submitHandler() {
+      console.log("submit handler")
+    }
   }
 })
 </script>
 
 <template>
   <div>sign up page</div>
-  <form>
+  <form @submit.prevent="submitHandler">
     <div>
       <input type="text" placeholder="email" v-model="email" />
     </div>
