@@ -5,6 +5,7 @@ export default defineComponent({
   // type inference enabled
   props: {},
   mounted() {
+    console.log(this.$store.getters["user/getUserData"]())
   },
   data() {
     return {
@@ -16,7 +17,8 @@ export default defineComponent({
     createTodo() {
       console.log("create todo");
       const {completed, text} = this;
-      this.$store.dispatch("addToDoItem", {text, completed});
+      const user = this.$store.getters["user/getUserData"]()
+      this.$store.dispatch("todo/addToDoItem", {text, completed, user});
       this.$router.push({name: "home"});
     }
   }

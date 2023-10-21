@@ -2,11 +2,18 @@ const UserStore = {
   namespaced: true,
   state() {
     return {
+      user: {}
     }
   },
   getters: {
+    getUserData: (store) => () => {
+      return store.user
+    }
   },
   mutations: {
+    setUserData(context, payload) {
+      context.user = payload;
+    }
   },
   actions: {
     signUp(context, payload) {
@@ -23,6 +30,8 @@ const UserStore = {
       }).then(
         async res => {
           const data = await res.json();
+          console.log(data)
+          context.commit("setUserData", data)
           return data;
         }
       )

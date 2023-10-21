@@ -20,14 +20,14 @@ const TodoStore = {
   actions: {
     addToDoItem(context, payload) {
       console.log("addToDoItem", context, payload)
+      const {user, ...todoData} = payload
       const item = {
-        ...payload,
+        ...todoData,
         created: (new Date()).getTime(),
-        updated: (new Date()).getTime(),
-        id: `${context.state.items.length + 1}`
+        updated: (new Date()).getTime()
       }
 
-      fetch(`${import.meta.env.VITE_FIREBASE_DB_URL}todo.json`, {
+      fetch(`${import.meta.env.VITE_FIREBASE_DB_URL}todo.json?auth=${user.idToken}`, {
           method: "post", // put
           headers: {
             "Content-Type": "application/json"
@@ -68,7 +68,7 @@ const TodoStore = {
               id: key
             }
           })
-          context.commit("setAllToDoData", todos)
+          context.commit("todo/setAllToDoData", todos)
         }
       )
     }
