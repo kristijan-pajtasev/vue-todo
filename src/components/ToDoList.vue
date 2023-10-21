@@ -6,13 +6,13 @@ export default defineComponent({
   props: {
   },
   mounted() {
-    this.$store.dispatch("getToDoItems")
+    this.$store.dispatch("todo/getToDoItems")
   },
   data() {
     return {}
   },
   computed: {
-    items() { return this.$store.state.items }
+    items() { return this.$store.state.todo.items }
   },
   methods: {
     goToDetails(id) {
