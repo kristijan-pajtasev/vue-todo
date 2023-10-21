@@ -8,7 +8,10 @@ export default defineComponent({
   mounted() {
   },
   data() {
-    return {}
+    return {
+      email: "",
+      password: ""
+    }
   },
   computed: {
   },
@@ -19,6 +22,15 @@ export default defineComponent({
 
 <template>
   <div>sign up page</div>
+  <form>
+    <div>
+      <input type="text" placeholder="email" v-model="email" />
+    </div>
+    <div>
+      <input type="text" placeholder="password" v-model="password" />
+    </div>
+    <button>Submit</button>
+  </form>
 </template>
 
 <style scoped>
