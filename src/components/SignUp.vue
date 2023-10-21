@@ -17,21 +17,13 @@ export default defineComponent({
   },
   methods: {
     submitHandler() {
-      console.log("submit handler", this.email, this.password)
-      fetch(`${import.meta.env.VITE_FIREBASE_AUTH_URL}${import.meta.env.VITE_FIREBASE_API_KEY}`, {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          email: this.email,
-          password: this.password
-        })
+      const router = this.$router;
+      this.$store.dispatch("user/signUp", {
+        email: this.email,
+        password: this.password
       }).then(
-          async res => {
-            console.log(res);
-            const data = await res.json();
-            console.log(data);
+          () => {
+            router.push({name: "home"})
           }
       )
     }
