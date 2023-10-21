@@ -13,21 +13,21 @@ export default defineComponent({
     const itemId = this.$route.params.id;
     const item = this.$store.getters.itemForId(itemId)
     return {
-      ...item
+      item
     }
   },
   computed: {
     displayCreatedDate() {
-      return new Date(this.created).toLocaleDateString()
+      return new Date(this.item.created).toLocaleDateString()
     },
     displayUpdatedDate() {
-      return new Date(this.updated).toLocaleDateString()
+      return new Date(this.item.updated).toLocaleDateString()
     }
   },
   methods: {
     handleToggleCompleted() {
-      this.$store.dispatch("toggleToDoItemStatus", {itemId: this.id});
-      this.completed = this.$store.getters.itemForId(this.id).completed;
+      this.$store.dispatch("toggleToDoItemStatus", {item: this.item});
+      this.completed = this.$store.getters.itemForId(this.item.id).completed;
     }
   }
 })
@@ -35,8 +35,8 @@ export default defineComponent({
 
 <template>
   <div class="ToDoItem">
-    <ToDoStatusToggle :completed="completed" @toggle-completed="handleToggleCompleted"></ToDoStatusToggle>
-    <div>{{ text }}</div>
+    <ToDoStatusToggle :completed="item.completed" @toggle-completed="handleToggleCompleted"></ToDoStatusToggle>
+    <div>{{ item.text }}</div>
     <div class="ToDoItem__dateValues">
       <div>Created: {{ displayCreatedDate }}</div>
       <div>Updated: {{ displayUpdatedDate }}</div>

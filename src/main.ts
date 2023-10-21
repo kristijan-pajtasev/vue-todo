@@ -31,7 +31,7 @@ const store = createStore({
             }
 
             fetch(`${import.meta.env.VITE_FIREBASE_DB_URL}todo.json`, {
-                    method: "post",
+                    method: "post", // put
                     headers: {
                         "Content-Type": "application/json"
                     },
@@ -41,12 +41,22 @@ const store = createStore({
             context.dispatch("getToDoItems");
         },
         toggleToDoItemStatus(context, payload) {
+            const {item} = payload
+            const itemId = item.id
             context.state.items = context.state.items.map(item => {
-                if (item.id === payload.itemId) {
+                if (item.id === itemId) {
                     item.completed = !item.completed;
                 }
                 return item;
             })
+            fetch(`${import.meta.env.VITE_FIREBASE_DB_URL}todo/${itemId}.json`, {
+                    method: "put", // put
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({...item, completed: !item.completed})
+                }
+            )
         },
         getToDoItems(context) {
             fetch(`${import.meta.env.VITE_FIREBASE_DB_URL}todo.json`, {
