@@ -1,9 +1,13 @@
 import './assets/main.css'
 import {createStore} from 'vuex'
 import ToDoStore from './store/todo'
+import UserStore from './store/user'
 
 const store = createStore({
-    modules: {todo: ToDoStore}
+    modules: {
+        todo: ToDoStore,
+        user: UserStore
+    }
 });
 
 import {createApp} from 'vue'
