@@ -68,7 +68,7 @@ const TodoStore = {
               id: key
             }
           })
-          context.commit("todo/setAllToDoData", todos)
+          context.commit("setAllToDoData", todos)
         }
       )
     }
