@@ -32,7 +32,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div>sign up page</div>
+  <div>log in page</div>
   <form @submit.prevent="submitHandler">
     <div>
       <input type="text" placeholder="email" v-model="email" />

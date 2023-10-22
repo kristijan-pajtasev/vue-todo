@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import ToDoList from "@/components/ToDoList.vue";
+import LogIn from "@/components/LogIn.vue";
 </script>
 
 <template>
   <main>
-    <ToDoList />
+    <LogIn />
   </main>
 </template>
