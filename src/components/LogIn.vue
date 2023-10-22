@@ -18,7 +18,7 @@ export default defineComponent({
   methods: {
     submitHandler() {
       const router = this.$router;
-      this.$store.dispatch("user/signUp", {
+      this.$store.dispatch("user/logIn", {
         email: this.email,
         password: this.password
       }).then(
