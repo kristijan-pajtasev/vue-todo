@@ -45,7 +45,8 @@ const UserStore = {
         },
         body: JSON.stringify({
           email: payload.email,
-          password: payload.password
+          password: payload.password,
+          returnSecureToken: true
         })
       }).then(
         async res => {
