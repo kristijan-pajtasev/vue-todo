@@ -33,7 +33,7 @@ export default defineComponent({
 
 <template>
   <div class="SignUp">
-    <div class="SignUp__title">Sign Up</div>
+    <h2 class="SignUp__title">Sign Up</h2>
     <form @submit.prevent="submitHandler">
       <div>
         <input class="SignUp__input" type="text" placeholder="E-mail" v-model="email" />
