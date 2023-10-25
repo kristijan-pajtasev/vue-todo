@@ -9,19 +9,17 @@ export default defineComponent({
   },
   mounted() {
   },
-  data() {
-    const itemId = this.$route.params.id;
-    const item = this.$store.getters.itemForId(itemId)
-    return {
-      item
-    }
-  },
+  data() {},
   computed: {
     displayCreatedDate() {
       return new Date(this.item.created).toLocaleDateString()
     },
     displayUpdatedDate() {
       return new Date(this.item.updated).toLocaleDateString()
+    },
+    item() {
+      const itemId = this.$route.params.id;
+      return this.$store.getters['todo/itemForId'](itemId)
     }
   },
   methods: {
