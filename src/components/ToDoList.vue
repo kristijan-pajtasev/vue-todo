@@ -38,15 +38,16 @@ export default defineComponent({
   flex: 1;
   list-style: none;
   padding: 0;
-  gap: 32px;
+  row-gap: 1rem;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin: 32px 0 0;
 }
 
 .ToDoList__itemContainer {
-  max-width: calc(33% - 32px);
-  min-width: calc(33% - 32px);
+  max-width: calc(33%);
+  min-width: calc(33%);
+  padding: 0 0.5rem ;
   height: 250px;
 }
 
