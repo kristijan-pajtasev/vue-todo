@@ -23,7 +23,6 @@ export default defineComponent({
 </script>
 
 <template>
-  <div>todo list</div>
   <ul class="ToDoList">
     <li class="ToDoList__itemContainer" v-for="item in items" :key="item.id">
       <div class="ToDoList__item" @click="goToDetails(item.id)">{{item.text}}</div>
