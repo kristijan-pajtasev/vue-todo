@@ -19,7 +19,9 @@ export default defineComponent({
     },
     item() {
       const itemId = this.$route.params.id;
-      return this.$store.getters['todo/itemForId'](itemId)
+      const item = this.$store.getters['todo/itemForId'](itemId)
+      if(!item) this.$store.dispatch("todo/getToDoItems");
+      return this.$store.getters['todo/itemForId'](itemId) || {}
     }
   },
   methods: {

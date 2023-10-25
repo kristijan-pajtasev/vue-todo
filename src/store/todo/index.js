@@ -7,7 +7,7 @@ const TodoStore = {
   },
   getters: {
     itemForId: store => id => {
-      return store.items.find(item => item.id === id)
+      return (store.items || []).find(item => item.id === id)
     }
   },
   mutations: {
